@@ -1,10 +1,11 @@
 import random
+import os
 from flask import Flask, request
 from pymessenger.bot import Bot
 
 app = Flask(__name__)
-ACCESS_TOKEN = 'EAAdqRpR1iwoBAGY4q5NVUusZBUu22XcgRuZBvXgz8Bo38s9LZALmXZAuDx0pAzehhWvFuIVNKNJ4BinLSZCrDIkNx3MZAK4v4IHbUpRKCEkBaGLEOHpFKkdI7WuU8F5u3LHs3rz9El4ISUj24bQflloTA26MYZB5aLRNAlwekpJ6gZDZD'
-VERIFY_TOKEN = 'itiswednesday'
+ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 
 #We will receive messages that Facebook sends our bot at this endpoint
@@ -45,9 +46,9 @@ def verify_fb_token(token_sent):
 
 #chooses a random message to send to the user
 def get_message():
-    sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+    response = 'https://i.imgur.com/n7I7cKp.jpg'
     # return selected item to the user
-    return random.choice(sample_responses)
+    return response
 
 #uses PyMessenger to send response to user
 def send_message(recipient_id, response):

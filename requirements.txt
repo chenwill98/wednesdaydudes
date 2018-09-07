@@ -7,8 +7,5 @@ itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0
 pymessenger==0.0.7.0
-requests==2.19.1
-requests-toolbelt==0.8.0
-six==1.11.0
-urllib3==1.23
-Werkzeug==0.14.1
+gunicorn==19.6.0
+

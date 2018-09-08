@@ -29,7 +29,7 @@ def receive_message():
                 if message['message'].get('text'):
                     response_sent_text = get_message()
                     #send_message(recipient_id, response_sent_text)
-                    send_image(recipient_id, 'wednesday.jpg')
+                    bot.send_image(recipient_id, 'wednesday.jpg')
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()

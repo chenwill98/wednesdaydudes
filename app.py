@@ -46,7 +46,7 @@ def verify_fb_token(token_sent):
 
 #chooses a random message to send to the user
 def get_message():
-    response = 'https://i.imgur.com/n7I7cKp.jpg'
+    response = "Well, something isn't working"
     # return selected item to the user
     return response
 

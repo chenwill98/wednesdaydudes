@@ -56,18 +56,5 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-#uses PyMessenger to send images to user
-def send_image(self, recipient_id, image_path, notification_type=NotificationType.regular):
-        """Send an image to the specified recipient.
-        Image must be PNG or JPEG or GIF (more might be supported).
-        https://developers.facebook.com/docs/messenger-platform/send-api-reference/image-attachment
-        Input:
-            recipient_id: recipient id to send to
-            image_path: path to image to be sent
-        Output:
-            Response from API as <dict>
-        """
-        return self.send_attachment(recipient_id, "image", image_path, notification_type)
-
 if __name__ == "__main__":
     app.run()

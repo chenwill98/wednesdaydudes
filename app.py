@@ -29,7 +29,8 @@ def receive_message():
                 if message['message'].get('text'):
                     response_sent_text = get_message()
                     #send_message(recipient_id, response_sent_text)
-                    bot.send_image(recipient_id, 'wednesday.jpg')
+                    image_url = "https://i.imgur.com/n7I7cKp.jpg";
+                    bot.send_image_url(recipient_id, image_url)
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()

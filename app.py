@@ -59,12 +59,12 @@ def send_message(recipient_id, response):
 def date_selector():
     day = datetime.datetime.today().weekday()
     day_to_url = {
-        1: "https://i.kym-cdn.com/photos/images/original/001/094/502/ac2.png"
-        2: "https://i.kym-cdn.com/photos/images/facebook/001/094/500/b1f.png"
-        3: "https://i.imgur.com/n7I7cKp.jpg"
-        4: "https://i.kym-cdn.com/photos/images/original/001/091/402/9d6.jpg"
-        5: "https://pics.me.me/it-is-friday-my-lads-me-irl-21746454.png"
-        6: "https://i.redd.it/xx24ryi1zl501.jpg"
+        1: "https://i.kym-cdn.com/photos/images/original/001/094/502/ac2.png",
+        2: "https://i.kym-cdn.com/photos/images/facebook/001/094/500/b1f.png",
+        3: "https://i.imgur.com/n7I7cKp.jpg",
+        4: "https://i.kym-cdn.com/photos/images/original/001/091/402/9d6.jpg",
+        5: "https://pics.me.me/it-is-friday-my-lads-me-irl-21746454.png",
+        6: "https://i.redd.it/xx24ryi1zl501.jpg",
         7: "https://coubsecure-s.akamaihd.net/get/b71/p/coub/simple/cw_timeline_pic/8a2d0299685/868d9b9413cba431a613c/med_1470752984_image.jpg"
     }
     return day_to_url.get(day, "https://i.imgur.com/n7I7cKp.jpg")

@@ -1,5 +1,6 @@
 import random
 import os
+import datetime
 from flask import Flask, request
 from pymessenger.bot import Bot
 
@@ -27,9 +28,7 @@ def receive_message():
                 #Facebook Messenger ID for user so we know where to send response back to
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
-                    response_sent_text = get_message()
-                    #send_message(recipient_id, response_sent_text)
-                    image_url = "https://i.imgur.com/n7I7cKp.jpg";
+                    image_url = date_selector()
                     bot.send_image_url(recipient_id, image_url)
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
@@ -44,7 +43,6 @@ def verify_fb_token(token_sent):
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
-
 #chooses a random message to send to the user
 def get_message():
     response = "Well, something isn't working"
@@ -56,6 +54,21 @@ def send_message(recipient_id, response):
     #sends user the text message provided via input response parameter
     bot.send_text_message(recipient_id, response)
     return "success"
+
+#determines which image to send based on day
+def date_selector():
+    day = datetime.datetime.today().weekday()
+    day_to_url = {
+        1: "https://i.kym-cdn.com/photos/images/original/001/094/502/ac2.png"
+        2: "https://i.kym-cdn.com/photos/images/facebook/001/094/500/b1f.png"
+        3: "https://i.imgur.com/n7I7cKp.jpg"
+        4: "https://i.kym-cdn.com/photos/images/original/001/091/402/9d6.jpg"
+        5: "https://pics.me.me/it-is-friday-my-lads-me-irl-21746454.png"
+        6: "https://i.redd.it/xx24ryi1zl501.jpg"
+        7: "https://coubsecure-s.akamaihd.net/get/b71/p/coub/simple/cw_timeline_pic/8a2d0299685/868d9b9413cba431a613c/med_1470752984_image.jpg"
+    }
+    return day_to_url.get(day, "https://i.imgur.com/n7I7cKp.jpg")
+
 
 if __name__ == "__main__":
     app.run()

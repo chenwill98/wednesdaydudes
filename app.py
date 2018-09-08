@@ -28,13 +28,13 @@ def receive_message():
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
                     response_sent_text = get_message()
-                    send_message(recipient_id, response_sent_text)
+                    #send_message(recipient_id, response_sent_text)
+                    send_image(recipient_id, 'wednesday.jpg')
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()
                     send_message(recipient_id, response_sent_nontext)
     return "Message Processed"
-
 
 def verify_fb_token(token_sent):
     #take token sent by facebook and verify it matches the verify token you sent
@@ -55,6 +55,19 @@ def send_message(recipient_id, response):
     #sends user the text message provided via input response parameter
     bot.send_text_message(recipient_id, response)
     return "success"
+
+#uses PyMessenger to send images to user
+def send_image(self, recipient_id, image_path, notification_type=NotificationType.regular):
+        """Send an image to the specified recipient.
+        Image must be PNG or JPEG or GIF (more might be supported).
+        https://developers.facebook.com/docs/messenger-platform/send-api-reference/image-attachment
+        Input:
+            recipient_id: recipient id to send to
+            image_path: path to image to be sent
+        Output:
+            Response from API as <dict>
+        """
+        return self.send_attachment(recipient_id, "image", image_path, notification_type)
 
 if __name__ == "__main__":
     app.run()

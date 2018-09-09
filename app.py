@@ -65,7 +65,7 @@ def date_selector():
         4: "https://i.kym-cdn.com/photos/images/original/001/091/402/9d6.jpg",
         5: "https://pics.me.me/it-is-friday-my-lads-me-irl-21746454.png",
         6: "https://i.redd.it/xx24ryi1zl501.jpg",
-        7: "https://coubsecure-s.akamaihd.net/get/b71/p/coub/simple/cw_timeline_pic/8a2d0299685/868d9b9413cba431a613c/med_1470752984_image.jpg"
+        7: "https://i.imgur.com/RogyXPP.jpg"
     }
     return day_to_url.get(day, "https://i.imgur.com/n7I7cKp.jpg")
 
